@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-
+import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ data }) {
@@ -18,21 +18,21 @@ export default function Home({ data }) {
       <header>
         <nav>
           <img />
-          <a className={styles.navItems} href="/">
+          <Link className={styles.navItems} href="/">
             Home
-          </a>
-          <a className={styles.navItems} href="/events">
+          </Link>
+          <Link className={styles.navItems} href="/events">
             Events
-          </a>
-          <a className={styles.navItems} href="/AboutUsPage">
+          </Link>
+          <Link className={styles.navItems} href="/AboutUsPage">
             About Us
-          </a>
+          </Link>
         </nav>
       </header>
       <main className={styles.main}>
         {data.map((event) => {
           return (
-            <a key={event.id} href={`/events/${event.id}`}>
+            <Link key={event.id} href={`/events/${event.id}`}>
               <p>hello</p>
               <Image
                 width={200}
@@ -42,36 +42,9 @@ export default function Home({ data }) {
               />
               <h2>{event.title}</h2>
               <p>{event.description}</p>
-            </a>
+            </Link>
           );
         })}
-        {/* <a href="/events/london">
-          <h2>Events in London</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum
-            delectus error voluptatem molestiae cumque magni nobis quasi ullam
-            eveniet asperiores optio illum, omnis voluptate ratione, quidem hic
-            ipsum laboriosam debitis.
-          </p>
-        </a>
-        <a href="/events/sanfrancisco">
-          <h2>Events in San Francisco</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum
-            delectus error voluptatem molestiae cumque magni nobis quasi ullam
-            eveniet asperiores optio illum, omnis voluptate ratione, quidem hic
-            ipsum laboriosam debitis.
-          </p>
-        </a>
-        <a href="/events/barcelona">
-          <h2>Events in Barcelona</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum
-            delectus error voluptatem molestiae cumque magni nobis quasi ullam
-            eveniet asperiores optio illum, omnis voluptate ratione, quidem hic
-            ipsum laboriosam debitis.
-          </p>
-        </a> */}
       </main>
       <footer className={styles.footer}>
         <p> © 2023 Events Project</p>
