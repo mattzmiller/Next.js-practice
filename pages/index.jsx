@@ -5,6 +5,11 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
+
+import HomePage from "../src/components/home/homePage";
+import Footer from "../src/components/footer/Footer";
+import Header from "../src/components/header/header";
+
 export default function Home({ data }) {
   return (
     <>
@@ -14,41 +19,9 @@ export default function Home({ data }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <header>
-        <nav>
-          <img />
-          <Link className={styles.navItems} href="/">
-            Home
-          </Link>
-          <Link className={styles.navItems} href="/events">
-            Events
-          </Link>
-          <Link className={styles.navItems} href="/AboutUsPage">
-            About Us
-          </Link>
-        </nav>
-      </header>
-      <main className={styles.main}>
-        {data.map((event) => {
-          return (
-            <Link key={event.id} href={`/events/${event.id}`}>
-              <p>hello</p>
-              <Image
-                width={200}
-                height={100}
-                src={event.image}
-                alt={event.title}
-              />
-              <h2>{event.title}</h2>
-              <p>{event.description}</p>
-            </Link>
-          );
-        })}
-      </main>
-      <footer className={styles.footer}>
-        <p> © 2023 Events Project</p>
-      </footer>
+      <Header />
+      <HomePage data={data}/>
+      <Footer />
     </>
   );
 }
